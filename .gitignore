@@ -1,8 +1,10 @@
 /.idea/
-/project/boot/
-/project/plugins/project
-target/
-lib_managed/
-src_managed/
-test-output/
+server/project/boot
+server/project/plugins/project
+server/project/target
+server/project/project/target
+server/target
+server/lib_managed
+server/src_managed
+server/test-output
 *.iml
