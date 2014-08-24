@@ -11,4 +11,4 @@ import org.bson.types.ObjectId
 trait HelpSeekersRepo  extends SalatDAO[HelpSeeker, ObjectId] {
 }
 
-object HelpSeekersRepoMongoImpl extends SalatDAO[HelpSeeker, ObjectId](collection  = MongoConnection()("test_db")("test_coll")) with HelpSeekersRepo
+object HelpSeekersRepoMongoImpl extends SalatDAO[HelpSeeker, ObjectId](collection  = MongoDBUtil.db("help_seekers")) with HelpSeekersRepo

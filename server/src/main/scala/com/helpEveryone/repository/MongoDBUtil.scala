@@ -5,6 +5,6 @@ import com.mongodb.casbah.Imports._
 
 object MongoDBUtil {
 
-  val db = MongoConnection("localhost", 27017)("test")
+  val db = MongoConnection("localhost", 27017)("help_everyone")
 
 }

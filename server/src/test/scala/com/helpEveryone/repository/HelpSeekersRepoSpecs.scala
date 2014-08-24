@@ -1,18 +1,16 @@
 package com.helpEveryone.repository
 
 import com.helpEveryone.domain.HelpSeeker
-import org.specs2.mutable.Specification
-import com.novus.salat._
-import com.novus.salat.global._
-import com.novus.salat.annotations._
-import com.novus.salat.dao._
 import com.mongodb.casbah.Imports._
+import org.specs2.mutable.Specification
+import org.specs2.specification.Scope
 
 class HelpSeekersRepoSpecs extends Specification {
-  "HelpSeekersRepo " should {
-    val helpSeekerRepo : HelpSeekersRepo = HelpSeekersRepoMongoImpl
 
-    " save help seeker in DB " in {
+  val helpSeekerRepo: HelpSeekersRepo = HelpSeekersRepoMongoImpl
+
+  "HelpSeekersRepo " should {
+    " save help seeker in DB " in new CleanHelpSeekerContext {
       val helSeeker = HelpSeeker(
         id = new ObjectId(),
         name = "Robin",
@@ -20,11 +18,15 @@ class HelpSeekersRepoSpecs extends Specification {
         longDesc = "Money for Strude Long",
         totalHelpAmount = 1000.0
       )
-
-      helpSeekerRepo.insert(helSeeker);
-
-      HelpSeekersRepoMongoImpl.count() should beEqualTo(6)
+      helpSeekerRepo.insert(helSeeker)
+      HelpSeekersRepoMongoImpl.count() should beEqualTo(1)
     }
   }
+
+
+  trait CleanHelpSeekerContext extends Scope {
+    helpSeekerRepo.collection.drop()
+  }
+
 
 }
