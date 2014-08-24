@@ -2,9 +2,14 @@ organization  := "com.example"
 
 version       := "0.1"
 
-scalaVersion  := "2.10.3"
+scalaVersion  := "2.10.4"
 
 scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8")
+
+resolvers ++= Seq(
+  "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/",
+  "Sonatype Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/"
+)
 
 libraryDependencies ++= {
   val akkaV = "2.1.4"
@@ -15,7 +20,9 @@ libraryDependencies ++= {
     "io.spray"            %   "spray-testkit" % sprayV  % "test",
     "com.typesafe.akka"   %%  "akka-actor"    % akkaV,
     "com.typesafe.akka"   %%  "akka-testkit"  % akkaV   % "test",
-    "org.specs2"          %%  "specs2"        % "2.2.3" % "test"
+    "org.specs2"          %%  "specs2"        % "2.2.3" % "test",
+    "org.mongodb"         %%  "casbah"        % "2.7.1",
+    "com.novus"           %%  "salat"         % "1.9.9"
   )
 }
 
