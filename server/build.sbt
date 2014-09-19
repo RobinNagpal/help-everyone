@@ -23,7 +23,8 @@ libraryDependencies ++= {
     "com.typesafe.akka"   %%  "akka-testkit"  % akkaV   % "test",
     "org.specs2"          %%  "specs2"        % "2.2.3" % "test",
     "org.mongodb"         %%  "casbah"        % "2.7.1",
-    "com.novus"           %%  "salat"         % "1.9.9"
+    "com.novus"           %%  "salat"         % "1.9.9",
+    "org.mockito"         %   "mockito-core"  % "1.9.5" % "test"
   )
 }
 

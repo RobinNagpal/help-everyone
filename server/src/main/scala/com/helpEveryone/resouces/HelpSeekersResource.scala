@@ -2,20 +2,24 @@ package com.helpEveryone.resouces
 
 import akka.actor.Actor
 import com.helpEveryone.service.HelpSeekersService
+import spray.http.MediaTypes._
 import spray.routing.HttpService
 import spray.httpx.SprayJsonSupport._
-
-
+import spray.routing._
+import spray.http._
+import com.helpEveryone.domain.HelpEveryoneJsonProtocol._
 trait HelpSeekersResource extends HttpService {
-  import com.helpEveryone.domain.HelpEveryoneJsonProtocol._
+
 
   def helpSeekersService: HelpSeekersService
 
   val helpSeekersRoute =
     path("help-seekers") {
       get {
-        complete {
-          helpSeekersService.getAll()
+        respondWithMediaType(`application/json`) {
+          complete {
+            helpSeekersService.getAll()
+          }
         }
       }
     }

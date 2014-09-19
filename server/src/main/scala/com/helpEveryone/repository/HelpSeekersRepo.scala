@@ -8,7 +8,6 @@ import com.novus.salat.dao._
 import com.mongodb.casbah.Imports._
 import org.bson.types.ObjectId
 
-trait HelpSeekersRepo  extends SalatDAO[HelpSeeker, ObjectId] {
-}
+trait HelpSeekersRepo  extends SalatDAO[HelpSeeker, ObjectId]
 
 object HelpSeekersRepoMongoImpl extends SalatDAO[HelpSeeker, ObjectId](collection  = MongoDBUtil.db("help_seekers")) with HelpSeekersRepo
